@@ -80,6 +80,7 @@ const ShopSelection: React.FC<ShopSelectionProps> = ({
         {/* Modal body */}
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {shops.length > 0 ? (
+            shops.map((shop, index) => (
               <div
                 key={shop.id}
                 className="flex flex-col items-center justify-center p-4 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 transition-colors"
