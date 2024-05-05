@@ -80,7 +80,6 @@ const ShopSelection: React.FC<ShopSelectionProps> = ({
         {/* Modal body */}
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {shops.length > 0 ? (
-            shops.map((shop) => (
               <div
                 key={shop.id}
                 className="flex flex-col items-center justify-center p-4 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 transition-colors"
@@ -89,7 +88,12 @@ const ShopSelection: React.FC<ShopSelectionProps> = ({
                 {/* Shop icon */}
                 <img
                   alt="Shop Icon"
-                  src="https://ik.imagekit.io/yhd/DecorFlow/Icons/Shop-Branch-2.png" // Change this to your icon URL
+                  // Render different images for odd and even cards
+                  src={
+                    index % 2 === 0
+                      ? "https://ik.imagekit.io/yhd/DecorFlow/Icons/Shop-Branch-2.png" // Even card image
+                      : "https://ik.imagekit.io/yhd/DecorFlow/Icons/Shop-Branch.png" // Odd card image
+                  }
                   className="w-16 h-16 mb-2 object-cover"
                 />
                 {/* Shop name */}
