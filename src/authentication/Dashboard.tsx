@@ -8,13 +8,15 @@ const Dashboard: React.FC = () => {
   // Function to handle sign out
   const handleSignOut = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("selectedShopId");
+    localStorage.removeItem("ShopId");
+    localStorage.removeItem("ShopName");
     navigate("/"); // Redirect to login page after signing out
   };
 
   // Retrieve the token and shop ID from local storage
   const token = localStorage.getItem("token");
-  const shopId = localStorage.getItem("selectedShopId");
+  const shopId = localStorage.getItem("ShopId");
+  const shopName = localStorage.getItem("ShopName");
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -33,6 +35,9 @@ const Dashboard: React.FC = () => {
 
           <p className="text-gray-800 mt-2">
             <span className="font-semibold">Your Shop ID:</span> {shopId}
+          </p>
+          <p className="text-gray-800 mt-2">
+            <span className="font-semibold">Your Shop Name is</span> {shopName}
           </p>
         </div>
 

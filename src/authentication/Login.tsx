@@ -109,6 +109,7 @@ const Login: React.FC = () => {
                   className="w-full flex-1 appearance-none border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
                   placeholder="Username"
                   value={username}
+                  required
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
@@ -121,6 +122,7 @@ const Login: React.FC = () => {
                   className="w-full flex-1 appearance-none border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
                   placeholder="Password"
                   value={password}
+                  required
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>

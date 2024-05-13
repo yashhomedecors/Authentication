@@ -41,8 +41,9 @@ const ShopSelection: React.FC<ShopSelectionProps> = ({
   };
 
   // Handle shop selection
-  const handleShopSelect = (shopId: string) => {
+  const handleShopSelect = (shopId: string, shopName: string) => {
     localStorage.setItem("ShopId", shopId);
+    localStorage.setItem("ShopName", shopName);
 
     // Call the onSelectShop callback with the selected shop's ID
     onSelectShop(shopId);
@@ -55,7 +56,7 @@ const ShopSelection: React.FC<ShopSelectionProps> = ({
     // Overlay for modal
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center ${
-        show ? "bg-black bg-opacity-50" : "hidden"
+        show ? "bg-black bg-opacity-85" : "hidden"
       }`}
       onClick={onClose}
     >
@@ -67,9 +68,9 @@ const ShopSelection: React.FC<ShopSelectionProps> = ({
         {/* Modal header */}
         <div className="flex justify-between items-start border-b pb-2">
           <div className="flex flex-col">
-            <h2 className="text-xl font-semibold">Select a Shop</h2>
+            <h2 className="text-xl font-semibold">Select your Branch</h2>
             <p className="text-md font-normal mt-1">
-              Please select a shop to continue
+              Please select a branch to continue
             </p>
           </div>
           <button onClick={onClose} className="text-gray-500">
@@ -84,12 +85,10 @@ const ShopSelection: React.FC<ShopSelectionProps> = ({
               <div
                 key={shop.id}
                 className="flex flex-col items-center justify-center p-4 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 transition-colors"
-                onClick={() => handleShopSelect(shop.id)}
+                onClick={() => handleShopSelect(shop.id, shop.shopName)}
               >
-                {/* Shop icon */}
                 <img
                   alt="Shop Icon"
-                  // Render different images for odd and even cards
                   src={
                     index % 2 === 0
                       ? "https://ik.imagekit.io/yhd/DecorFlow/Icons/Shop-Branch-2.png" // Even card image
