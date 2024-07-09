@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://oms-bu8k.onrender.com/',
+    baseURL: 'https://api.yashhomedecors.com:8080',
 });
 
 // Request interceptor to add the authorization header
